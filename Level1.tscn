@@ -11,7 +11,9 @@ extents = Vector2( 424, 32 )
 [node name="Level1" type="Node2D"]
 
 [node name="Block1" type="RigidBody2D" parent="."]
-position = Vector2( 321, 177 )
+position = Vector2( 331, 169 )
+rotation = -0.423133
+gravity_scale = 12.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -20,6 +22,62 @@ __meta__ = {
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Block1"]
+shape = SubResource( 1 )
+
+[node name="Block2" type="RigidBody2D" parent="."]
+position = Vector2( 225, 218 )
+rotation = -2.5444
+gravity_scale = 12.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Block2"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block2"]
+shape = SubResource( 1 )
+
+[node name="Block3" type="RigidBody2D" parent="."]
+position = Vector2( 518, 126 )
+rotation = -0.718553
+gravity_scale = 12.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Block3"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block3"]
+shape = SubResource( 1 )
+
+[node name="Block4" type="RigidBody2D" parent="."]
+position = Vector2( 426, 242 )
+rotation = 0.113075
+gravity_scale = 12.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Block4"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block4"]
+shape = SubResource( 1 )
+
+[node name="Block5" type="RigidBody2D" parent="."]
+position = Vector2( 621, 220 )
+rotation = 0.966818
+gravity_scale = 12.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Block5"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Block5"]
 shape = SubResource( 1 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
