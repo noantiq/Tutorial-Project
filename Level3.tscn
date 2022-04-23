@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://World_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Pass-through-tiles.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/background/set2_background.png" type="Texture" id=4]
+[ext_resource path="res://assets/background/set2_tiles.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 32 )
@@ -11,11 +13,6 @@ extents = Vector2( 160, 32 )
 extents = Vector2( 256, 32 )
 
 [node name="Level3" type="Node2D"]
-
-[node name="Solid Tiles" type="TileMap" parent="."]
-tile_set = ExtResource( 1 )
-format = 1
-tile_data = PoolIntArray( -65511, 4, 0, -65510, 2, 0, -65509, 2, 0, -65508, 2, 0, -65507, 5, 0, 65542, 4, 0, 65543, 5, 0, 131089, 4, 0, 131090, 2, 0, 131091, 2, 0, 131092, 2, 0, 131093, 5, 0, 327690, 4, 0, 327691, 2, 0, 327692, 2, 0, 327693, 2, 0, 327694, 5, 0, 524290, 1, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 524300, 3, 0, 524313, 1, 0, 524314, 2, 0, 524315, 2, 0, 524316, 2, 0, 524317, 2, 0, 524318, 2, 0, 524319, 2, 0, 524320, 2, 0, 524321, 2, 0, 524322, 2, 0, 524323, 2, 0, 524324, 2, 0, 524325, 2, 0, 524326, 2, 0, 524327, 3, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0, 589858, 0, 0, 589859, 0, 0, 589860, 0, 0, 589861, 0, 0, 589862, 0, 0, 589863, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655378, 1, 0, 655379, 3, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 655395, 0, 0, 655396, 0, 0, 655397, 0, 0, 655398, 0, 0, 655399, 0, 0 )
 
 [node name="One-Way Tiles" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -34,6 +31,11 @@ position = Vector2( 2176, 160 )
 shape = SubResource( 2 )
 one_way_collision = true
 
+[node name="Solid Tiles" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -65511, 4, 0, -65510, 2, 0, -65509, 2, 0, -65508, 2, 0, -65507, 5, 0, 65542, 4, 0, 65543, 5, 0, 131089, 4, 0, 131090, 2, 0, 131091, 2, 0, 131092, 2, 0, 131093, 5, 0, 327690, 4, 0, 327691, 2, 0, 327692, 2, 0, 327693, 2, 0, 327694, 5, 0, 524290, 1, 0, 524291, 2, 0, 524292, 2, 0, 524293, 2, 0, 524294, 2, 0, 524295, 2, 0, 524296, 2, 0, 524297, 2, 0, 524298, 2, 0, 524299, 2, 0, 524300, 3, 0, 524313, 1, 0, 524314, 2, 0, 524315, 2, 0, 524316, 2, 0, 524317, 2, 0, 524318, 2, 0, 524319, 2, 0, 524320, 2, 0, 524321, 2, 0, 524322, 2, 0, 524323, 2, 0, 524324, 2, 0, 524325, 2, 0, 524326, 2, 0, 524327, 3, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0, 589858, 0, 0, 589859, 0, 0, 589860, 0, 0, 589861, 0, 0, 589862, 0, 0, 589863, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655378, 1, 0, 655379, 3, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 655395, 0, 0, 655396, 0, 0, 655397, 0, 0, 655398, 0, 0, 655399, 0, 0 )
+
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( 213, 266 )
 
@@ -48,3 +50,44 @@ drag_margin_left = 0.3
 drag_margin_right = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Purple Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1280, 960 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Purple Sky"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Distant Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.886275, 0.788235, 0, 0.309804 )
+motion_scale = Vector2( 0.25, 0.25 )
+motion_offset = Vector2( -500, -500 )
+motion_mirroring = Vector2( 2560, 1920 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Distant Blocks"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Middle Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color( 0.854902, 0.752941, 0.752941, 0.8 )
+motion_scale = Vector2( 0.4, 0.4 )
+motion_offset = Vector2( -500, -500 )
+motion_mirroring = Vector2( 1600, 1200 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Middle Blocks"]
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Nearby Blocks" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.6, 0.6 )
+motion_mirroring = Vector2( 1120, 840 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Nearby Blocks"]
+scale = Vector2( 1.75, 1.75 )
+texture = ExtResource( 5 )
+centered = false
