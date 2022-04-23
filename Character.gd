@@ -10,11 +10,19 @@ var max_jumps = 2
 func _physics_process(delta):
 	if Input.is_action_pressed("right"):
 		velocity.x = MOVEMENT_SPEED
-	if Input.is_action_pressed("left"):
+		$Sprite.play("walking")
+		$Sprite.flip_h = false
+	elif Input.is_action_pressed("left"):
 		velocity.x = - MOVEMENT_SPEED
+		$Sprite.play("walking")
+		$Sprite.flip_h = true
+	else:
+		$Sprite.play("idle")
 	
 	if is_on_floor():
 		jump_counter = 0
+	else:
+		$Sprite.play("jumping")
 	
 	if Input.is_action_just_pressed("jump") and ((jump_counter < max_jumps) or is_on_floor()):
 		velocity.y = JUMP_FORCE
