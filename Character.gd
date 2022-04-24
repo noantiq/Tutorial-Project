@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+enum States {AIR, FLOOR, LADDER, WALL}
 var velocity = Vector2.ZERO
 const MOVEMENT_SPEED = 200
 const GRAVITY = 30
@@ -26,6 +27,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and ((jump_counter < max_jumps) or is_on_floor()):
 		velocity.y = JUMP_FORCE
+		$JumpSound.play()
 		jump_counter += 1
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
@@ -35,4 +37,24 @@ func _physics_process(delta):
 
 
 func _on_fallzone_body_entered(body):
-	get_tree().change_scene("res://Level3.tscn")
+	get_tree().change_scene("res://GameOver.tscn")
+
+func bounce():
+	velocity.y = JUMP_FORCE * 0.5
+
+func get_hit(enemy_position):
+	set_modulate(Color(1, 0.3, 0.3, 0.3))
+	velocity.y = JUMP_FORCE * 0.3
+	
+	if position.x < enemy_position:
+		velocity.x = JUMP_FORCE * 0.5
+	else:
+		velocity.x = JUMP_FORCE * - 0.5
+	
+	Input.action_release("left")
+	Input.action_release("right")
+	
+	$DeathTimer.start()
+
+func _on_DeathTimer_timeout():
+	get_tree().change_scene("res://GameOver.tscn")

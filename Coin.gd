@@ -5,6 +5,7 @@ signal coin_collected
 func _on_coin_body_entered(body):
 	set_collision_mask_bit(0, 0)
 	$AnimationPlayer.play("bounce")
+	$CollectSound.play()
 	emit_signal("coin_collected")
 
 

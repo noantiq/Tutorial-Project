@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://MainMenuButton.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/KiriFont.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Win" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.121569, 0.568627, 0.262745, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 298.0
+margin_top = 121.0
+margin_right = 856.0
+margin_bottom = 239.0
+custom_fonts/font = SubResource( 1 )
+text = "you win!"
+uppercase = true
+
+[node name="MainMenuButton" type="Button" parent="."]
+margin_left = 328.0
+margin_top = 317.0
+margin_right = 738.0
+margin_bottom = 364.0
+custom_fonts/font = SubResource( 2 )
+text = "Back to Title Menu"
+flat = true
+script = ExtResource( 1 )

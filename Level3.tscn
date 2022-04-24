@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://World_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=2]
@@ -6,9 +6,8 @@
 [ext_resource path="res://assets/background/set2_background.png" type="Texture" id=4]
 [ext_resource path="res://assets/background/set2_tiles.png" type="Texture" id=5]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/HUD/coin_gold.png" type="Texture" id=7]
-[ext_resource path="res://assets/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://HUD.gd" type="Script" id=9]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/music/Retro Beat.ogg" type="AudioStream" id=8]
 [ext_resource path="res://enemy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -19,21 +18,6 @@ extents = Vector2( 256, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 2480, 96 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0, 0, 0.564706 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="DynamicFont" id=5]
-size = 50
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 70
-font_data = ExtResource( 8 )
 
 [node name="Level3" type="Node2D"]
 
@@ -131,6 +115,18 @@ position = Vector2( 794, 273 )
 [node name="Coin" parent="Coins" instance=ExtResource( 6 )]
 position = Vector2( 449, 15 )
 
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 317, 473 )
+facing_direction = 1
+
+[node name="enemy2" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 562, 469 )
+facing_direction = 1
+
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( 213, 266 )
 
@@ -146,52 +142,10 @@ drag_margin_right = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource( 9 )
-
-[node name="Panel" type="Panel" parent="HUD"]
-margin_left = 25.0
-margin_top = 11.0
-margin_right = 227.0
-margin_bottom = 92.0
-custom_styles/panel = SubResource( 4 )
-
-[node name="TextureRect" type="TextureRect" parent="HUD"]
-margin_left = 36.0
-margin_top = 20.0
-margin_right = 97.0
-margin_bottom = 81.0
-texture = ExtResource( 7 )
-
-[node name="x" type="Label" parent="HUD"]
-margin_left = 105.0
-margin_top = 21.0
-margin_right = 135.0
-margin_bottom = 81.0
-custom_colors/font_color = Color( 0.909804, 0.733333, 0.133333, 1 )
-custom_fonts/font = SubResource( 5 )
-text = "x"
-valign = 1
-
-[node name="Coins" type="Label" parent="HUD"]
-margin_left = 129.0
-margin_top = 13.0
-margin_right = 219.0
-margin_bottom = 97.0
-custom_colors/font_color = Color( 0.909804, 0.733333, 0.133333, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "##"
-valign = 1
-
-[node name="enemies" type="Node2D" parent="."]
-
-[node name="enemy" parent="enemies" instance=ExtResource( 10 )]
-position = Vector2( 317, 473 )
-facing_direction = 1
-
-[node name="enemy2" parent="enemies" instance=ExtResource( 10 )]
-position = Vector2( 562, 469 )
-facing_direction = 1
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -12.0
+autoplay = true
 
 [connection signal="body_entered" from="Fall Zone" to="Character" method="_on_fallzone_body_entered"]
 [connection signal="coin_collected" from="Coins/Coin2" to="HUD" method="_on_coin_collected"]
