@@ -6,6 +6,8 @@ const GRAVITY = 30
 const JUMP_FORCE = - 900
 var jump_counter = 0
 var max_jumps = 2
+var coins = 0
+var coins_win = 3
 
 func _physics_process(delta):
 	if Input.is_action_pressed("right"):
@@ -36,3 +38,8 @@ func _physics_process(delta):
 
 func _on_fallzone_body_entered(body):
 	get_tree().change_scene("res://Level3.tscn")
+
+func add_coin():
+	coins += 1
+	if coins == coins_win:
+		get_tree().change_scene("res://Level3.tscn")
