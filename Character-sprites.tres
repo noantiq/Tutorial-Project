@@ -15,11 +15,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "walking",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "crouching",
@@ -30,8 +25,13 @@ animations = [ {
 "name": "climbing",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "jumping",
+"name": "air",
 "speed": 5.0
 } ]

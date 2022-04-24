@@ -121,11 +121,9 @@ position = Vector2( 449, 15 )
 
 [node name="enemy" parent="enemies" instance=ExtResource( 10 )]
 position = Vector2( 317, 473 )
-facing_direction = 1
 
 [node name="enemy2" parent="enemies" instance=ExtResource( 10 )]
 position = Vector2( 562, 469 )
-facing_direction = 1
 
 [node name="Character" parent="." instance=ExtResource( 2 )]
 position = Vector2( 213, 266 )
