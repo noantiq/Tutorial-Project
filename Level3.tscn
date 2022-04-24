@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://World_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/HUD/coin_gold.png" type="Texture" id=7]
 [ext_resource path="res://assets/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://HUD.gd" type="Script" id=9]
+[ext_resource path="res://enemy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 32 )
@@ -85,6 +86,8 @@ format = 1
 tile_data = PoolIntArray( 131102, 1, 0, 131103, 2, 0, 131104, 2, 0, 131105, 2, 0, 131106, 2, 0, 131107, 2, 0, 131108, 2, 0, 131109, 3, 0, 196638, 0, 0, 196639, 0, 0, 196640, 0, 0, 196641, 0, 0, 196642, 0, 0, 196643, 0, 0, 196644, 0, 0, 196645, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 327710, 2, 0, 327711, 2, 0, 327712, 2, 0, 327713, 2, 0, 327714, 2, 0, 327715, 0, 0, 327716, 0, 0, 327717, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0, 393250, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 458782, 0, 0, 458783, 0, 0, 458784, 0, 0, 458785, 0, 0, 458786, 0, 0, 458787, 0, 0, 458788, 0, 0, 458789, 0, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="One-Way Tiles"]
+collision_layer = 2
+collision_mask = 49
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="One-Way Tiles/StaticBody2D"]
 position = Vector2( 2080, 352 )
@@ -179,6 +182,16 @@ custom_colors/font_color = Color( 0.909804, 0.733333, 0.133333, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "##"
 valign = 1
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 317, 473 )
+facing_direction = 1
+
+[node name="enemy2" parent="enemies" instance=ExtResource( 10 )]
+position = Vector2( 562, 469 )
+facing_direction = 1
 
 [connection signal="body_entered" from="Fall Zone" to="Character" method="_on_fallzone_body_entered"]
 [connection signal="coin_collected" from="Coins/Coin2" to="HUD" method="_on_coin_collected"]
